@@ -32,10 +32,6 @@ It contains various buttons used for performing operations mentioned above and i
 * Web Page width needs to be adjusted when extension is active.
 * Also Shotcuts can be added to access these buttons.
 
-## Author
-Contributor-Rahul Singh
-College-IIT Roorkee
-
 ## Version History
 * 1.0.0 
 
