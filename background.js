@@ -7,8 +7,8 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-chrome.contextMenus.onClicked.addListener(function(clickData) {
-  if (clickData.menuItemId == "annotate") {
+chrome.contextMenus.onClicked.addListener((clickData) => {
+  if (clickData.menuItemId === "annotate") {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       chrome.tabs.sendMessage(tabs[0].id, { type: 'TOGGLE_SIDEBAR' });
     });
@@ -33,27 +33,19 @@ const saveAnnotation = (annotation, url) => {
   return new Promise((resolve, reject) => {
     chrome.storage.local.get({ annotations: {} }, (result) => {
       const annotations = result.annotations;
-      if (!annotations[url]) {
-        annotations[url] = [];
-      }
+      if (!annotations[url]) annotations[url] = [];
       annotations[url].push(annotation);
       chrome.storage.local.set({ annotations }, () => {
-        if (chrome.runtime.lastError) {
-          reject(new Error('Failed to save annotation'));
-        } else {
-          resolve();
-        }
+        chrome.runtime.lastError ? reject(chrome.runtime.lastError) : resolve();
       });
     });
   });
 };
 
 const getAnnotations = (url) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     chrome.storage.local.get({ annotations: {} }, (result) => {
-      const annotations = result.annotations;
-      const annotationsForUrl = annotations[url] || [];
-      resolve(annotationsForUrl);
+      resolve(result.annotations[url] || []);
     });
   });
 };

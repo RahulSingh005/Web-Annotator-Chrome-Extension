@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Web Annotator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Annotate Web Pages With Highlights, Notes and Export them to PDF.",
   "icons": {
     "128": "logo.png"
@@ -25,6 +25,11 @@
       "css": ["styles.css"]
     }
   ],
+  "web_accessible_resources": [{
+    "resources": ["libs/jspdf.umd.min.js"],
+    "matches": ["<all_urls>"]
+  }]
+  ,
   "host_permissions": [
     "http://*/*",
     "https://*/*"
