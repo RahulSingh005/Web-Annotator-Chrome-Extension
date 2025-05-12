@@ -3,7 +3,7 @@ It is a Chrome Extension used for annotating a webpage containing features like 
 
 ## User Interface
 
-[UI](https://github.com/user-attachments/assets/007a5385-8303-4b09-815b-91ff83536239)
+![UI](https://github.com/user-attachments/assets/007a5385-8303-4b09-815b-91ff83536239)
 ![ui2](https://github.com/user-attachments/assets/8c060a4f-c918-4660-8ba2-746b24aca5d3)
 
 
